@@ -1,3 +1,10 @@
 Flask==2.0.1
 gunicorn==21.2.0
 Werkzeug==2.0.3
+flask_bootstrap  # Crucial for Bootstrap integration
+
+# Additional recommendations for best practices:
+click==8.1.3  # For command-line interface functionality
+itsdangerous==2.1.2  # For secure data signing and verification
+Jinja2==3.1.2  # For templating engine
+MarkupSafe==2.1.1  # For secure HTML generation
