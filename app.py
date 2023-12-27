@@ -56,20 +56,20 @@ class WordSearchGame:
         hints = {
             'MUZE': "Brain feeling fried? Let's refuel with a memory of our laughter and dancing at a club in Nairobi!",
             'CAMPING': "Remember the nights under the stars and the warmth of the fire.",
-            'HIKING': "Think of the beautiful trails and the breathtaking views.",
+            'HIKING': "Think of the activity invloving beautiful trails and the breathtaking views, mudd and rain.",
             'RAIN': "Ah, the weather didn't always agree with us during this outdoor adventure!",
-            'ZIPLINING': "Recall the thrill of soaring through the trees with the wind in our hair.",
-            'BOARDGAMES': "Fun nights filled with laughter and friendly competition!",
+            'ZIPLINING': "Recall the thrill of soaring through the trees with the wind in our hair and me not getting to the end.",
+            'BOARDGAMES': "Fun nights acitivity general name filled with laughter and friendly competition!",
             'BIRTHDAY': "A special celebration for someone very dear to my heart.",
             'PUSSINBOOTS': "Stuck? Time for a Puss in Boots power nap!",
             'LAMB': "A cute little creature often seen in the countryside. But you found out its name recently.",
             'GRINCH': "Playfully named after a character we found amusing and gave it to Oscar.",
-            'ABERDARES': "Our camping adventure with unexpected encounters with wildlife, waterfalls, and deers everywhere!",
+            'ABERDARES': "Our camping adventure with unexpected encounters with wildlife, waterfalls and deers everywhere!",
             'NAIROBI': "The vibrant city where we explored the nightlife.",
             'SAMAWATI': "A lodge where we celebrated a special birthday.",
             'DRAGONSTEETH': "Hiking to discover mystical rock formations on a special occasion.",
             'CHAPATI': "Our delicious cooking experiment with local African dishes which you can find also in Tanzania. But no other places.",
-            'TANZANIA': "A country you explored with its rich culture and landscapes.",
+            'TANZANIA': "A country you explored with its rich culture and landscapes and slept in an abodoned house with a terrorist.",
             'GHANA': "Vibrant and full of history, you were there for a year 5 or four years ago.",
             'ZANZIBAR': "An exotic island with beautiful beaches and spice plantations.",
             'RWANDA': "A country known for its scenic beauty and gorilla trekking.",
@@ -89,7 +89,12 @@ def index():
             flash(f"Correct! {guess} is a match. {get_random_encouragement()} 😊🎉")
             word_search_game.correct_guesses.append(guess)
             if len(word_search_game.correct_guesses) == len(word_search_game.all_words):
-                flash("Congratulations! You found all the words! Love you 🎉✨")
+                flash("Congratulations! You found all the words Paulsen! 🎉✨")
+                flash("In this word search, you've triumphed so grand, every word discovered, hand in hand. 🌟")
+                flash("Through the letters, you gracefully wove, a tapestry of love. 💖")
+                flash("Each word a gem, shining bright, just like you, my eternal light. ✨")
+                flash("As the puzzle completes, and the game is done, my love for you, second to none. ❤️")
+
         else:
             word_search_game.incorrect_attempts += 1
             flash(f"Sorry, {guess} is not a match. {get_random_motivation()} {get_random_emoji()}")
