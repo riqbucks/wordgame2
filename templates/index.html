@@ -1,0 +1,107 @@
+{% extends 'bootstrap/base.html' %}
+
+{% block styles %}
+    {{ super() }}
+    <style>
+        body {
+            background-color: black;
+            color: white;
+        }
+
+        .word-search-container {
+            display: grid;
+            gap: 5px;
+            margin-top: 20px;
+        }
+
+        .word-row {
+            display: flex;
+            gap: 5px;
+            justify-content: center;
+        }
+
+        .word-search-grid span {
+            border: 1px solid white;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 30px; /* Adjust as needed */
+            height: 30px; /* Adjust as needed */
+            font-size: 18px;
+        }
+
+        .hint {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .alert {
+            background-color: #ff6b6b;
+            color: white;
+            border-color: #ff6b6b;
+        }
+
+        .congratulations {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .celebration-img {
+            width: 100%;
+            max-width: 400px;
+            margin-top: 20px;
+        }
+
+        .love-message {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <div class="container mt-5">
+        <h1 class="text-center">Adventure Word Search</h1>
+        <div class="row justify-content-center">
+            <form method="post" class="mb-3">
+                <div class="form-group">
+                    <label for="guess">Enter a word:</label>
+                    <input type="text" class="form-control" id="guess" name="guess" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+        <div class="row justify-content-center">
+            <div class="word-search-grid">
+                {% for row in grid %}
+                    <div class="word-row">
+                        {% for letter in row %}
+                            <span>{{ letter }}</span>
+                        {% endfor %}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% if get_flashed_messages() %}
+            <div class="alert" role="alert">
+                {% for message in get_flashed_messages() %}
+                    {{ message }}<br>
+                {% endfor %}
+            </div>
+        {% endif %}
+        {% if correct_guesses|length == grid|length %}
+            <div class="congratulations">
+                <h2>Congratulations!</h2>
+                <p>You found all the words! 🎉✨</p>
+                <img src="{{ url_for('static', filename='celebration.gif') }}" alt="Celebration" class="celebration-img">
+                <div class="love-message">
+                    <p>Thank you for being my greatest adventure, Love you. 💕💑</p>
+                    <p>😘💋</p>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}
